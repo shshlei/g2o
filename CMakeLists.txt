@@ -153,7 +153,7 @@ set(OpenGL_GL_PREFERENCE "GLVND")
 find_package(OpenGL)
 
 # If OpenGL was found, use the import target if available. If not, use old-style includes
-option(G2O_USE_OPENGL "Build g2o with OpenGL support for visualization" ON)
+option(G2O_USE_OPENGL "Build g2o with OpenGL support for visualization" OFF)
 if (OPENGL_FOUND AND G2O_USE_OPENGL)
   if (TARGET OpenGL::GL)
     set(G2O_OPENGL_TARGET "OpenGL::GL;OpenGL::GLU")
@@ -380,8 +380,8 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -march=native")
   endif()
   # activate warnings !!!
-  set(g2o_C_FLAGS "${g2o_C_FLAGS} -Wall -W")
-  set(g2o_CXX_FLAGS "${g2o_CXX_FLAGS} -Wall -W")
+  set(g2o_C_FLAGS "${g2o_C_FLAGS} -Wall -Wextra -W")
+  set(g2o_CXX_FLAGS "${g2o_CXX_FLAGS} -Wall -Wextra -W")
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -401,8 +401,8 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   # activate all warnings
   #set(g2o_C_FLAGS "${g2o_C_FLAGS} -Weverything")
   #set(g2o_CXX_FLAGS "${g2o_CXX_FLAGS} -Weverything")
-  set(g2o_C_FLAGS "${g2o_C_FLAGS} -Wall")
-  set(g2o_CXX_FLAGS "${g2o_CXX_FLAGS} -Wall")
+  set(g2o_C_FLAGS "${g2o_C_FLAGS} -Wall -Wextra")
+  set(g2o_CXX_FLAGS "${g2o_CXX_FLAGS} -Wall -Wextra")
   #set(g2o_CXX_FLAGS "${g2o_CXX_FLAGS} -Wall -stdlib=libc++")
 endif()
 

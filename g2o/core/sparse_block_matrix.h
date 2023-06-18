@@ -102,7 +102,7 @@ class SparseBlockMatrix {
   //! memory
   void clear(bool dealloc = false);
 
-  //! returns the block at location r,c. if alloc=true he block is created if it
+  //! returns the block at location r,c. if alloc=true the block is created if it
   //! does not exist
   SparseMatrixBlock* block(int r, int c, bool alloc = false);
   //! returns the block at location r,c
